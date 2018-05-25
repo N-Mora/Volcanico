@@ -5,7 +5,19 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ListeComponent } from './liste/liste.component';
+import { VolcansComponent } from './volcans/volcans.component';
+import { VolcanDetailComponent } from './volcan-detail/volcan-detail.component';
+import { Volcan } from './_models';
+import { VolcanService } from './_services/volcan.service';
+import { RouterModule, Routes } from '@angular/router';
+import { AccueilComponent } from './accueil/accueil.component';
+import { MapComponent } from './map/map.component';
+import { VolcanComponent } from './volcan/volcan.component';
+
+
+const appRoutes: Routes = [{ path: '', component: AccueilComponent },
+{ path: 'volcan/:id', component: VolcanComponent }, { path: 'map', component: MapComponent },
+{ path: 'volcans', component: VolcansComponent }];
 
 @NgModule({
   declarations: [
@@ -13,12 +25,16 @@ import { ListeComponent } from './liste/liste.component';
     HelloComponent,
     HeaderComponent,
     FooterComponent,
-    ListeComponent
+    VolcansComponent,
+    VolcanDetailComponent,
+    AccueilComponent,
+    MapComponent,
+    VolcanComponent
   ],
-  imports: [
+  imports: [RouterModule.forRoot(appRoutes),
     BrowserModule, FormsModule
   ],
-  providers: [],
+  providers: [VolcanService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

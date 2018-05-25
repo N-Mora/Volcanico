@@ -1,0 +1,26 @@
+<div *ngIf="volcanSelected!=null">
+  <app-volcan-detail [volcanDetail]="volcanSelected"></app-volcan-detail>
+</div>
+
+
+<ul *ngFor="let v of volcans">
+  <li (click)="selected(v)">{{v.name|uppercase}}</li>
+  <!--<button (click)="selected(v)">Detail</button>-->
+  <button (click)="editVolcan(v.id)">Editer volcan</button>
+</ul>
+
+
+<input [(ngModel)]=volcan.name placeholder="Name :" />
+<br>
+<input [(ngModel)]=volcan.location placeholder="Localisation :" />
+<br>
+<input [(ngModel)]=volcan.type placeholder="Type :" />
+<br>
+<input [(ngModel)]=volcan.origin placeholder="Origine :" />
+<br>
+<input [(ngModel)]=volcan.funFact placeholder="Lol :" />
+<br>
+<input [(ngModel)]=volcan.lastEruption placeholder="Dernière éruption :" />
+<br>
+<button (click)="addVolcan()" *ngIf="!edit">Ajouter un volcan</button>
+<button (click)="editOver()" *ngIf="edit">Soumettre le volcan</button>

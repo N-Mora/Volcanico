@@ -18,7 +18,7 @@ export class Volcan {
         this.lastEruption = lastEruption;
     }*/
 
-    constructor(name= '', location= '', type= '', origin= '', funFact= '', lastEruption= null) {
+    constructor(name = '', location = '', type = '', origin = '', funFact = '', lastEruption = null) {
         this.id = Volcan.count++;
         this.name = name;
         this.location = location;
@@ -27,5 +27,7 @@ export class Volcan {
         this.funFact = funFact;
         this.lastEruption = lastEruption;
     }
+
+
 
 }
