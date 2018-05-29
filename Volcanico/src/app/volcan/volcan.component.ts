@@ -10,25 +10,19 @@ import { Volcan } from '../_models';
 })
 export class VolcanComponent implements OnInit {
 
-  param: string;
-  volcans;
+  param: number;
+  volcan;
 
   constructor(private activatedRoute: ActivatedRoute, private volcanService: VolcanService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(
-      p => this.param = p['id']
-    );
+    this.activatedRoute.params.subscribe(p => this.afficherVolcan(p['id']));
   }
 
-  getVolcanById(id: number): Volcan {
-    /*for (let i = 0; i < this.volcans.length; i++) {
-      if (this.volcans[i].id === id) {
-        return this.volcans[i];
-      }
-    }
-    return null;*/
-    return this.volcans.filter(v => v.id === id)[0];
+  afficherVolcan(id: string) {
+    this.param = +id; //Convertir id en number si c'est un string
+    this.volcan = this.volcanService.getVolcanById(this.param);
+    //this.volcan = this.volcanService.getVolcanById(+id); 
   }
 
 }

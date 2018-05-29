@@ -1,5 +1,13 @@
-<p>
-  carte interactive maps
-</p>
+<!-- Déclaration du conteneur de la carte avec l'id "volcanoMap" -->
+<div id="volcanoMap"></div>
 
-<img src = "assets/images/plates_volcanoes.jpg" id = "imageInteractive" alt ="volcanoesMap" />
+<div *ngIf="volcanSelected!=null">
+  <app-volcan-detail [volcanDetail]="volcanSelected"></app-volcan-detail>
+</div>
+
+<ul *ngFor="let v of volcans" (click)="eventOnClick(v.id)">
+  {{ v }}
+</ul>
+
+
+

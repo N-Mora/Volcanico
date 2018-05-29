@@ -23,21 +23,20 @@ export class VolcansComponent implements OnInit {
   }
 
   editVolcan(id: number) {
-    console.log(id);
-    this.volcan = this.getVolcanById(id);
+    this.volcan = this.volcanService.getVolcanById(id);
     this.edit = true;
   }
-
+/*
   getVolcanById(id: number): Volcan {
-    /*for (let i = 0; i < this.volcans.length; i++) {
+    for (let i = 0; i < this.volcans.length; i++) {
       if (this.volcans[i].id === id) {
         return this.volcans[i];
       }
     }
-    return null;*/
+    return null;
     return this.volcans.filter(v => v.id === id)[0];
   }
-
+*/
   editOver() {
     this.edit = false;
     this.volcan = new Volcan();

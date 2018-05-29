@@ -1,3 +1,13 @@
-<p>
-  {{param}}
-</p>
+<div *ngIf="volcan">
+  <br>
+  DETAILS :
+  <br>
+  <br> Nom : {{volcan.name}}
+  <br> Type : {{volcan.type}}
+  <br> Pays : {{volcan.location}}
+  <br> Origine : {{volcan.origin}}
+  <br> Lol : {{volcan.funFact}}
+  <br> Date de la dernière eruption : {{volcan.lastEruption}}
+  <br> <img [src] = "'assets/images/' + volcan.photo" id = "picture" alt ="volcanPerso" />
+</div>
+

@@ -1,0 +1,10 @@
+<input type="text" [(ngModel)]="wordsToSearch" placeholder="search" (keyup)="search()">
+
+
+<div *ngFor="let e of resultList">
+    <li> <a [routerLink]= "['/volcan', e.id]"> {{e.name}}</a></li>
+</div>
+
+
+
+<!--<li> <a [routerLink]= "['/volcan', v.id]"> {{v.name|uppercase}}</a></li>-->
