@@ -1,0 +1,33 @@
+#edit {
+    margin-left: 40px;
+    display: block;
+    
+}
+
+#liste {
+    margin-top:20px;
+    height : 100%;
+    margin-left : 40px;
+    display : flex; 
+}
+
+
+
+p {
+    max-width: 100%;
+    min-width: 400px;
+}
+
+img {
+    float: right;
+    margin-left :30px;
+    margin-right: 120px;
+    max-width: 45%;
+    margin-top :-292px;
+}
+
+#body {
+    min-height: 421px;
+    max-height : 100%;
+}
+

@@ -13,6 +13,7 @@ button {
 	font-size:12px;
 	padding:6px 15px;
 	text-decoration:none;
+	margin-left : 10px;
 }
 button:hover {
 	background:#bb362c;
@@ -22,16 +23,31 @@ button:active {
 	top:1px;
 }
 
-
-
 ul {
-
-  list-style-type:none;
-  list-style-position: outside;
+  list-style-type: disc;
+	list-style-position: outside;
+	
 }
   
 li {
   padding: 10px;
   margin: 0px;
 }
-  
+
+div {
+	margin : 20px;
+
+	
+}
+
+div #search  {
+	border-radius : 5px;
+	font-family : 'Times New Roman', Times, serif;
+	font-size : 15px;
+	color : #bb362c;
+}
+
+
+#ajout {
+	display : flex;
+}

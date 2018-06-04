@@ -1,0 +1,21 @@
+ div {
+    height : 100%;
+    margin : 30px;
+    display : flex; 
+    border : 120px #e02d0d;
+    padding : 5px;
+}
+    
+p {
+    max-width: 100%;
+    min-width: 400px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size : 20px;
+}
+    
+img {   
+    margin-left :30px;
+    margin-right: 30px;
+    max-width: 100%;
+    
+}

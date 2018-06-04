@@ -1,5 +1,7 @@
-<div *ngIf="volcan">
+<div id="body">
+<div id="liste" *ngIf="!edit">
   <br>
+  <p>
   DETAILS :
   <br>
   <br> Nom : {{volcan.name}}
@@ -8,6 +10,38 @@
   <br> Origine : {{volcan.origin}}
   <br> Lol : {{volcan.funFact}}
   <br> Date de la dernière eruption : {{volcan.lastEruption}}
+  <br> Latitude : {{volcan.latitude}}
+  <br> Longitude : {{volcan.longitude}}
+  <br>
+  <br>
+  <button (click)="editVolcan()">Editer volcan</button>
+<br>
+</p>
+</div>
+<div id="edit" *ngIf="edit">
+  
+<br>
+<input [(ngModel)]=volcan.name placeholder="Name :" />
+<br>
+<input [(ngModel)]=volcan.location placeholder="Localisation :" />
+<br>
+<input [(ngModel)]=volcan.type placeholder="Type :" />
+<br>
+<input [(ngModel)]=volcan.origin placeholder="Origine :" />
+<br>
+<input [(ngModel)]=volcan.funFact placeholder="Lol :" />
+<br>
+<input [(ngModel)]=volcan.lastEruption placeholder="Dernière éruption :" />
+<br>
+<input [(ngModel)]=volcan.latitude placeholder="Latitude :" />
+<br>
+<input [(ngModel)]=volcan.longitude placeholder="Longitude :" />
+<br>
+<button (click)="editOver()" >Soumettre le volcan</button>
+</div>
+
+
   <br> <img [src] = "'assets/images/' + volcan.photo" id = "picture" alt ="volcanPerso" />
 </div>
+
 

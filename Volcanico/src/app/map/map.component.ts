@@ -16,6 +16,7 @@ export class MapComponent implements OnInit {
   volcans = [];
   volcan: Volcan;
   volcanSelected;
+  test: boolean;
 
   constructor(private activatedRoute: ActivatedRoute, private volcanService: VolcanService) { }
 
@@ -58,9 +59,11 @@ export class MapComponent implements OnInit {
 
 
   eventOnClick(lat, lng) {
+
     this.volcan = this.volcanService.getByCoordinates(lat, lng);
     this.selectVolcan(this.volcan);
     this.setVolcanSelected();
+
   }
 
   selectVolcan(volcan) {

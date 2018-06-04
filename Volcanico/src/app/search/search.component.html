@@ -1,8 +1,9 @@
-<input type="text" [(ngModel)]="wordsToSearch" placeholder="search" (keyup)="search()">
+<input type="text" [(ngModel)]="wordsToSearch" placeholder="nom Volcan" (keyup)="search()">
 
 
 <div *ngFor="let e of resultList">
-    <li> <a [routerLink]= "['/volcan', e.id]"> {{e.name}}</a></li>
+    <li> <a [routerLink]= "['/volcan', e.id]"> {{e.name}}</a> => 
+        <a [routerLink]= "['/map', e.latitude, e.longitude]"> Carte</a></li>
 </div>
 
 

@@ -2,18 +2,22 @@
   <app-volcan-detail [volcanDetail]="volcanSelected"></app-volcan-detail>
 </div>
 
-<app-search></app-search>
+<div id="search">
+<b>Rechercher un volcan dans la liste : </b><br>
+<app-search></app-search> 
+</div>
 
 <ul *ngFor="let v of volcans">
   <li> <a [routerLink]= "['/volcan', v.id]"> {{v.name|uppercase}}</a> : <a [routerLink]= "['/map', v.latitude, v.longitude]"> Voir sur la carte</a></li>
   
-  <!--<button (click)="selected(v)">Detail</button>-->
+   <!--
   <button (click)="editVolcan(v.id)">Editer volcan</button>
-  
+  <button (click)="selected(v)">Detail</button>
+  -->  
 </ul>
 
-
-<input [(ngModel)]=volcan.name placeholder="Name :" />
+<div id="ajout">
+<input id="first" [(ngModel)]=volcan.name placeholder="Name :" />
 <br>
 <input [(ngModel)]=volcan.location placeholder="Localisation :" />
 <br>
@@ -25,5 +29,11 @@
 <br>
 <input [(ngModel)]=volcan.lastEruption placeholder="Dernière éruption :" />
 <br>
+<input [(ngModel)]=volcan.latitude placeholder="Latitude :" />
+<br>
+<input id="last" [(ngModel)]=volcan.longitude placeholder="Longitude :" />
+<br>
 <button (click)="addVolcan()" *ngIf="!edit">Ajouter un volcan</button>
 <button (click)="editOver()" *ngIf="edit">Soumettre le volcan</button>
+
+</div>

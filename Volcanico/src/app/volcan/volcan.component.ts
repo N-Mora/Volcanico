@@ -12,6 +12,7 @@ export class VolcanComponent implements OnInit {
 
   param: number;
   volcan;
+  edit = false;
 
   constructor(private activatedRoute: ActivatedRoute, private volcanService: VolcanService) { }
 
@@ -23,6 +24,12 @@ export class VolcanComponent implements OnInit {
     this.param = +id; //Convertir id en number si c'est un string
     this.volcan = this.volcanService.getVolcanById(this.param);
     //this.volcan = this.volcanService.getVolcanById(+id); 
+  }
+
+  editVolcan() {
+    this.volcan = this.volcanService;
+    this.edit = true;
+
   }
 
 }
