@@ -1,17 +1,42 @@
 package com.nimora.Volcan.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity // Previent qu'il existe une table sql dans la BDD qui porte le meme nom que la
+		// classe
 public class Volcan {
 
-	private static int count = 1;
+	@Column
 	private String name;
+	@Column // Presente dans la base de donnees sous forme d'une colonne avec le meme nom.
 	private String location;
-	private String type;
-	private String origin;
+
+	@ManyToOne
+	@JoinColumn(name = "type", referencedColumnName = "id_type", foreignKey = @ForeignKey(name = "type"))
+	private Type type;
+
+	@ManyToOne
+	@JoinColumn(name = "origin", referencedColumnName = "id_origin", foreignKey = @ForeignKey(name = "origin"))
+	private Origin origin;
+
+	@Column
 	private String funFact;
+	@Column
 	private float lastEruption;
+
+	@Id // Contient le @column et contient également une annotation qui dit que l'Id est
+		// généré par la BDD
 	private int id;
-	private String photo;
+	@Column
+	private String photoPath;
+	@Column
 	private double latitude;
+	@Column
 	private double longitude;
 
 	/**
@@ -21,12 +46,13 @@ public class Volcan {
 	 * @param origin
 	 * @param funFact
 	 * @param lastEruption
-	 * @param photo
+	 * @param id
+	 * @param photoPath
 	 * @param latitude
 	 * @param longitude
 	 */
-	public Volcan(String name, String location, String type, String origin, String funFact, float lastEruption,
-			String photo, double latitude, double longitude) {
+	public Volcan(String name, String location, Type type, Origin origin, String funFact, float lastEruption, int id,
+			String photoPath, double latitude, double longitude) {
 		super();
 		this.name = name;
 		this.location = location;
@@ -34,15 +60,14 @@ public class Volcan {
 		this.origin = origin;
 		this.funFact = funFact;
 		this.lastEruption = lastEruption;
-		this.photo = photo;
+		this.id = id;
+		this.photoPath = photoPath;
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.id = Volcan.count++;
-
 	}
 
 	public Volcan() {
-		this.id = Volcan.count++;
+		super();
 	}
 
 	public String getName() {
@@ -61,19 +86,19 @@ public class Volcan {
 		this.location = location;
 	}
 
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
 
-	public String getOrigin() {
+	public Origin getOrigin() {
 		return origin;
 	}
 
-	public void setOrigin(String origin) {
+	public void setOrigin(Origin origin) {
 		this.origin = origin;
 	}
 
@@ -101,12 +126,12 @@ public class Volcan {
 		this.id = id;
 	}
 
-	public String getPhoto() {
-		return photo;
+	public String getPhotoPath() {
+		return photoPath;
 	}
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
 	}
 
 	public double getLatitude() {
@@ -125,11 +150,4 @@ public class Volcan {
 		this.longitude = longitude;
 	}
 
-	public static int getCount() {
-		return count;
-	}
-
-	public static void setCount(int count) {
-		Volcan.count = count;
-	}
 }

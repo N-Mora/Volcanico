@@ -12,6 +12,7 @@ export class VolcansComponent implements OnInit {
   edit = false;
   volcans;
   volcan = new Volcan();
+  list = [];
 
   volcanSelected: Volcan;
 
@@ -48,6 +49,13 @@ export class VolcansComponent implements OnInit {
 
   ngOnInit() {
     this.volcans = this.volcanService.getVolcans();
+    this.getAll();
   }
+
+  getAll() {
+    return this.volcanService.getAll().subscribe(r => this.list = r);
+  }
+
+
 
 }

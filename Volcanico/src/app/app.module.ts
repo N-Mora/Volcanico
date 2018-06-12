@@ -13,12 +13,16 @@ import { MapComponent } from './map/map.component';
 import { VolcanComponent } from './volcan/volcan.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
+import { WebComponent } from './web/web.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './about/about.component';
 
 
 
 const appRoutes: Routes = [{ path: 'map', component: MapComponent },
 { path: 'volcans', component: VolcansComponent }, { path: 'volcan/:id', component: VolcanComponent },
-{ path: '', component: HomeComponent }, { path: 'map/:latitude/:longitude', component: MapComponent }];
+{ path: '', component: HomeComponent }, { path: 'map/:latitude/:longitude', component: MapComponent },
+{ path: 'about', component: AboutComponent}];
 
 @NgModule({
   declarations: [
@@ -30,10 +34,12 @@ const appRoutes: Routes = [{ path: 'map', component: MapComponent },
     MapComponent,
     VolcanComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    WebComponent,
+    AboutComponent
   ],
   imports: [RouterModule.forRoot(appRoutes),
-    BrowserModule, FormsModule
+    BrowserModule, FormsModule, HttpClientModule
   ],
   providers: [VolcanService],
   bootstrap: [AppComponent]

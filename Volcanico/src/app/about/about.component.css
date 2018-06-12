@@ -1,0 +1,38 @@
+div {
+	height : 440px;
+	margin : 0;
+	padding : 0;
+	position : relative;
+	width : 100%
+}
+
+ul, li {
+	list-style : none;
+	margin : 0;
+	padding : 0;
+}
+
+ul {
+	text-align : center;
+}
+
+ul.menu_icons li {
+	display : inline;
+}
+
+a:hover, a:focus {
+	z-index : 200;
+}
+
+a img {
+	border : none;
+	transition : all 0.2s ease 0s;
+}
+
+ul.menu_icons a img {
+	transform-origin : center top 0;
+}
+
+a:hover img, a:focus img {
+	transform : scale(2);
+}

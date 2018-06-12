@@ -26,7 +26,7 @@ public class VolcanController implements IVolcanController {
 
 	@RequestMapping("/all")
 	public List<Volcan> getAll() {
-		return this.volcanService.getVolcans();
+		return this.volcanService.getAll();
 	}
 
 	@RequestMapping("/get/{id}")
@@ -37,6 +37,18 @@ public class VolcanController implements IVolcanController {
 	@RequestMapping("/post")
 	public List<Volcan> addVolcan(@RequestBody Volcan v) {
 		this.volcanService.addVolcan(v);
+		return this.getAll();
+	}
+
+	@RequestMapping("/delete/{id}")
+	public List<Volcan> deleteVolcan(@PathVariable("id") int id) {
+		this.volcanService.deleteById(id);
+		return this.getAll();
+	}
+
+	@RequestMapping("/edit")
+	public List<Volcan> putVolcan(@RequestBody Volcan v) {
+		this.volcanService.putVolcan(v);
 		return this.getAll();
 	}
 

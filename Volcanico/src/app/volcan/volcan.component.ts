@@ -13,11 +13,14 @@ export class VolcanComponent implements OnInit {
   param: number;
   volcan;
   edit = false;
+  list = [];
 
   constructor(private activatedRoute: ActivatedRoute, private volcanService: VolcanService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(p => this.afficherVolcan(p['id']));
+    //this.activatedRoute.params.subscribe(p => this.afficherVolcan(p['id']));
+    this.getAll();
+    this.activatedRoute.params.subscribe(p => console.log(this.getById(p['id'])));
   }
 
   afficherVolcan(id: string) {
@@ -30,6 +33,16 @@ export class VolcanComponent implements OnInit {
     this.volcan = this.volcanService;
     this.edit = true;
 
+  }
+
+  getAll() {
+    return this.volcanService.getAll().subscribe(r => this.list = r);
+  }
+
+  getById(id: string): Volcan {
+    this.param = +id;
+    this.volcan = this.volcanService.getById(this.param).subscribe(r => this.volcan = r);
+    return this.volcan;
   }
 
 }

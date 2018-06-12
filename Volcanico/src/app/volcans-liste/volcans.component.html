@@ -7,8 +7,8 @@
 <app-search></app-search> 
 </div>
 
-<ul *ngFor="let v of volcans">
-  <li> <a [routerLink]= "['/volcan', v.id]"> {{v.name|uppercase}}</a> : <a [routerLink]= "['/map', v.latitude, v.longitude]"> Voir sur la carte</a></li>
+<ul *ngFor="let v of list">
+  <li> <a [routerLink]= "['/volcan', v.id]"> {{v.name}}</a> : <a [routerLink]= "['/map', v.latitude, v.longitude]"> Voir sur la carte</a></li>
   
    <!--
   <button (click)="editVolcan(v.id)">Editer volcan</button>
