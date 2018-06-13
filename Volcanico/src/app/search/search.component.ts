@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit() {
-    this.volcans = this.volcanService.getVolcans();
+    this.volcans = this.volcanService.getAll().subscribe(r => this.volcans = r);
   }
 
   search() {

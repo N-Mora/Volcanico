@@ -23,11 +23,11 @@ export class VolcanComponent implements OnInit {
     this.activatedRoute.params.subscribe(p => console.log(this.getById(p['id'])));
   }
 
-  afficherVolcan(id: string) {
-    this.param = +id; //Convertir id en number si c'est un string
-    this.volcan = this.volcanService.getVolcanById(this.param);
-    //this.volcan = this.volcanService.getVolcanById(+id); 
-  }
+  // afficherVolcan(id: string) {
+  //   this.param = +id; //Convertir id en number si c'est un string
+  //   this.volcan = this.volcanService.getVolcanById(this.param);
+  //   //this.volcan = this.volcanService.getVolcanById(+id); 
+  // }
 
   editVolcan() {
     this.volcan = this.volcanService;

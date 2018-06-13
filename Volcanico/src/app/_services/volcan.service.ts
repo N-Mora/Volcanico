@@ -24,19 +24,19 @@ export class VolcanService {
   constructor(private http: HttpClient) { }
 
 
-  getVolcans() {
-    return this.volcans;
-  }
+  // getVolcans() {
+  //   return this.volcans;
+  // }
 
-  getVolcanById(id: number): Volcan {
-    /*for (let i = 0; i < this.volcans.length; i++) {
-      if (this.volcans[i].id === id) {
-        return this.volcans[i];
-      }
-    }
-    return null;*/
-    return this.volcans.filter(v => v.id === id)[0];
-  }
+  // getVolcanById(id: number): Volcan {
+  //   /*for (let i = 0; i < this.volcans.length; i++) {
+  //     if (this.volcans[i].id === id) {
+  //       return this.volcans[i];
+  //     }
+  //   }
+  //   return null;*/
+  //   return this.volcans.filter(v => v.id === id)[0];
+  // }
 
   getByCoordinates(lat: number, lng: number): Volcan {
     return this.volcans.filter(v => v.latitude === lat && v.longitude === lng)[0];

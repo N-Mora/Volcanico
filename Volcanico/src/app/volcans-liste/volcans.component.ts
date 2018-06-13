@@ -19,12 +19,12 @@ export class VolcansComponent implements OnInit {
   constructor(private volcanService: VolcanService) { }
 
   addVolcan() {
-    this.volcans.push(this.volcan);
+    this.volcanService.addVolcan(this.volcan);
     this.volcan = new Volcan();
   }
 
   editVolcan(id: number) {
-    this.volcan = this.volcanService.getVolcanById(id);
+    this.volcans = this.volcanService.getById(id);
     this.edit = true;
   }
 /*
@@ -48,7 +48,7 @@ export class VolcansComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.volcans = this.volcanService.getVolcans();
+    this.volcans = this.volcanService.getAll();
     this.getAll();
   }
 
